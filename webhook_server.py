@@ -32,7 +32,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         cb_func(emo_webhook_body)
         self._send_status(200)
         
-        if hasattr(emo_webhook_body.data, 'message') and emo_webhook_body.data.message.message.ja == KEY_WORD:
+        if hasattr(emo_webhook_body.data, 'message') and KEY_WORD in emo_webhook_body.data.message.message.ja:
             send_msg(get_recommended_movie())
 
 def run_server():
